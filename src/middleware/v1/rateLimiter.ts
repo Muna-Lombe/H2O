@@ -11,6 +11,20 @@ export const standardRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+export const webRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: Math.floor(standardLimit * 1),
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+export const mobileRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: Math.floor(standardLimit * 0.5),
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
 export const aiChatRateLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: aiChatLimit,
